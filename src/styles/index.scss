@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+
+  &:focus {
+    box-shadow: none !important;
+    outline: none;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: '';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
