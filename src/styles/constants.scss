@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
+:root {
+    --main-bg: #131419;
+    --color-purple: #4447e2;
+    --color-dark-gray: #2d2d3a;
+    --color-3: #231f20;
+    --color-bg-indigo: #1c1c24;
+    --color-white: #ffffff;
+    --color-gray: #5f5f6e;
+    --color-6: #5f5f6f;
+    --color-smoke-gray: #8e8e96;
+    --color-8: #262631;
+    --color-9: #4b4b62;
+    --transition: all 0.2s linear;
+    --radius: 15px;
+    --color-red: #e24444;
+    --color-bg-switcher: #dde1e8;
+}
+
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("/fonts/FontsFree-Net-SFProDisplay-BoldItalic.ttf") format("ttf"),
+        url("/fonts/FontsFree-Net-SFProDisplay-MediumItalic.ttf") format("ttf"),
+        url("/fonts/FontsFree-Net-SFProDisplay-Regular.ttf") format("ttf"),
+        url("/fonts/FontsFree-Net-SFProDisplay-SemiboldItalic.ttf") format("ttf");
+}
+
+@mixin flex($dir, $align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $dir;
+}
+
+@mixin font_size($size, $type, $weight) {
+    font-style: normal;
+    font-weight: normal;
+    font-size: $size + $type;
+    font-weight: $weight;
+    // line-height: ($size * 1.1) + $type;
+}
+
+$toggle-background-color-on: var(--color-dark-gray);
+$toggle-background-color-off: var(--color-bg-switcher);
+$toggle-control-color: var(--color-purple);
+$toggle-width: 44px;
+$toggle-height: 24px;
+$toggle-gutter: 5px;
+$toggle-radius: 50%;
+$toggle-control-speed: 0.15s;
+$toggle-control-ease: ease-in;
+
+// These are our computed variables
+// change at your own risk.
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);
+
+.toggle-control {
+    position: relative;
+    padding-left: $toggle-width;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    margin-top: -20px;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input:checked ~ .control {
+        background-color: $toggle-background-color-on;
+
+        &:after {
+            left: $toggle-width - $toggle-control-size - $toggle-gutter;
+        }
+    }
+
+    .control {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $toggle-height;
+        width: $toggle-width;
+        border-radius: $toggle-radius;
+        background-color: $toggle-background-color-off;
+        transition: background-color $toggle-control-speed $toggle-control-ease;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: $toggle-gutter;
+            top: $toggle-gutter;
+            width: $toggle-control-size;
+            height: $toggle-control-size;
+            border-radius: $toggle-radius;
+            background: $toggle-control-color;
+            transition: left $toggle-control-speed $toggle-control-ease;
+        }
+    }
+}
+
+.dropdown-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.dropdown-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+.dropdown-exit {
+    opacity: 1;
+}
+.dropdown-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}
