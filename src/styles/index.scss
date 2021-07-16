@@ -19,7 +19,7 @@ p {
 
 hr {
   background-color: var(--color-white) !important;
-  margin: .3rem 0 !important;
+  margin: 0.3rem 0 !important;
 }
 
 body {
@@ -36,9 +36,6 @@ body {
   border-bottom: 2px solid var(--color-dark-gray);
 
   .main-nav {
-    max-width: calc(100vw - 100px * 2);
-    width: 100%;
-    margin: 0 auto;
     padding: 1.3rem 0 0.8rem 0;
 
     .navbar-brand {
@@ -121,6 +118,7 @@ body {
 
       .user-dropdown {
         position: relative;
+        padding-right: 0;
 
         &-btn {
           background-color: transparent;
@@ -185,6 +183,98 @@ body {
             border: none;
           }
         }
+      }
+    }
+  }
+}
+
+.main-footer {
+  color: var(--color-solid-gray);
+  padding: 2rem 0;
+  border-top: 2px solid #262631;
+
+  .social-links {
+    a {
+      margin-right: 1.3rem;
+    }
+  }
+}
+
+.task-list {
+  margin: 1.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-gap: 1.25rem;
+
+  &-card {
+    border-radius: var(--radius);
+    background-color: var(--color-bg-indigo);
+    padding: 1.25rem;
+
+    &-top {
+      display: flex;
+      color: var(--color-white);
+    }
+
+    .avatar {
+      border-radius: 50%;
+      width: 3.125rem;
+      height: 3.125rem;
+      margin-right: 0.625rem;
+      position: relative;
+    }
+
+    .task-owner-name {
+      @include font_size(1, rem, 500);
+    }
+
+    .task-type {
+      @include font_size(0.875, rem, 400);
+      color: var(--color-solid-gray);
+
+      &-img {
+        position: absolute;
+        bottom: 0;
+        right: -4px;
+        background: var(--color-bg-indigo);
+        width: 16px;
+        height: 16px;
+        @include flex(row, center, center);
+        border-radius: 50%;
+        padding: 3px;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+
+    &-dropdown {
+      margin-left: auto;
+    }
+
+    &-img {
+      margin: 1.25rem 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+        border-radius: var(--radius);
+      }
+    }
+    .action-button {
+      border-radius: var(--radius);
+      text-decoration: none;
+      border: 2px solid var(--color-purple);
+      padding: 1rem 2rem;
+      text-align: center;
+      display: block;
+      color: var(--color-white);
+      @include font_size(1, rem, 500);
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--color-purple);
       }
     }
   }
