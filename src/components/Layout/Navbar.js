@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group';
 
 const Navbar = () => {
@@ -31,16 +31,16 @@ const Navbar = () => {
                             <div className="center-menu">
                                 <ul className="nav">
                                     <li className="nav-item">
-                                        <a href="" className="nav-link active">
+                                        <NavLink to="/" exact activeClassName="active" className="nav-link">
                                             <img src={'/assets/images/task-list.svg'} alt="Promotion Service Task List" />
                                             Task List
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="" className="nav-link">
+                                        <NavLink to="/news" activeClassName="active" className="nav-link">
                                             <img src={'/assets/images/news.svg'} alt="Promotion Service News" />
                                             News
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <a href="" className="nav-link">

@@ -1,5 +1,10 @@
 @import "./constants.scss";
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -276,6 +281,86 @@ body {
       &:hover {
         background-color: var(--color-purple);
       }
+    }
+  }
+}
+
+.news-banner {
+  margin: 4rem 0 6.25rem 0;
+  border-radius: var(--radius);
+  background-color: var(--color-bg-indigo);
+
+  &-inner {
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &-img {
+    flex: .6;
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-content {
+    flex: .4;
+    color: var(--color-white);
+    padding-left: 2.5rem;
+
+    &-title {
+      @include font_size(2.125, rem, 500);
+      padding-bottom: 1.25rem;
+    }
+
+    &-info {
+      @include font_size(1.125, rem, 400);
+      padding-bottom: 2.5rem;
+    }
+
+    &-date {
+      @include font_size(0.875, rem, 400);
+      color: var(--color-ghost-gray);
+    }
+  }
+}
+
+.news-cards {
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1.56rem;
+
+  .news-card {
+    padding: 1.25rem;
+    background-color: var(--color-bg-indigo);
+    border-radius: var(--radius);
+    color: var(--color-white);
+
+    &-img {
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &-info {
+      padding: 0 5px;
+      @include font_size(1.25, rem, 500);
+    }
+
+    &-date {
+      margin-top: 0.625rem;
+      padding: 0 5px;
+      @include font_size(1, rem, 400);
+      color: var(--color-ghost-gray);
     }
   }
 }

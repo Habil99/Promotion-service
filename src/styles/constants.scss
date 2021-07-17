@@ -10,6 +10,7 @@
     --color-gray: #5f5f6e;
     --color-solid-gray: #5f5f6f;
     --color-smoke-gray: #8e8e96;
+    --color-ghost-gray: #A6ADB1;
     --base-skeleton-color: rgba(82, 82, 82, 0.205);
     --color-8: #262631;
     --base-skeleton-shine: rgba(110, 110, 110, 0.363);
@@ -140,13 +141,36 @@ $toggle-control-size: $toggle-height - ($toggle-gutter * 2);
     transform: translateX(0);
     transition: opacity 300ms, transform 300ms;
 }
+
 .dropdown-exit {
     opacity: 1;
 }
+
 .dropdown-exit-active {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 300ms, transform 300ms;
+}
+
+.pages-enter {
+    opacity: 0;
+    transform: translateX(-100vw);
+}
+
+.pages-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .3s linear;
+}
+
+.pages-exit {
+    opacity: 1;
+}
+
+.pages-exit-active {
+    opacity: 0;
+    transform: translateX(-100vw);
+    transition: all .3s linear;
 }
 
 .skeleton {
@@ -223,5 +247,22 @@ $toggle-control-size: $toggle-height - ($toggle-gutter * 2);
     40%,
     100% {
         background-position: 100%;
+    }
+}
+
+.fixed-button {
+    position: fixed;
+    right: 1.875rem;
+    bottom: 8.75rem;
+    z-index: 1;
+    background-color: var(--color-bg-indigo);
+    border-radius: 50%;
+    padding: 7px;
+    overflow: hidden;
+
+    button {
+        background: transparent;
+        border: none;
+        outline: none;
     }
 }

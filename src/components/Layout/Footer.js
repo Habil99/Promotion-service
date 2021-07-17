@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => {
     return (
         <div className="main-footer">
@@ -20,7 +18,7 @@ const Footer = () => {
                     </div>
                     <div className="col-lg">
                         <p className="text-center copyright-text">
-                            © 2020 - All Rights Lecensed
+                            © 2021 - All Rights Lecensed
                         </p>
                     </div>
                     <div className="col-lg-3">

@@ -1,13 +1,41 @@
-import React, { useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router';
+import React from 'react';
+import { Route, Switch } from 'react-router';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from './components/Layout';
-import TaskList from './components/TaskList';
+import News from './pages/News';
+import TaskList from './pages/TaskList';
 
 function App() {
+
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact component={TaskList} />
+        <TransitionGroup>
+          <Route path="/" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <TaskList />
+              </CSSTransition>
+            )}
+          </Route>
+          <Route path="/news" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <News />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
       </Switch>
     </Layout>
   );
