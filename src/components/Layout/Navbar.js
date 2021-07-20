@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, withRouter } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group';
 
-const Navbar = () => {
+const Navbar = ({ history }) => {
     const [switcherValue, setSwitcherValue] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
 
+    history.listen(() => {
+        if (showDropdown === false) { 
+            setShowDropdown(false);
+        }
+    })
+
     const toggleTheme = (e) => {
         setSwitcherValue(val => val = !val);
-        // console.log(switcherValue);
     };
 
     useEffect(() => {
         setSwitcherValue(true);
-        // console.log(switcherValue);
     }, [switcherValue]);
 
     return (
@@ -31,7 +35,7 @@ const Navbar = () => {
                             <div className="center-menu">
                                 <ul className="nav">
                                     <li className="nav-item">
-                                        <NavLink to="/" exact activeClassName="active" className="nav-link">
+                                        <NavLink to="/task-list" exact activeClassName="active" className="nav-link">
                                             <img src={'/assets/images/task-list.svg'} alt="Promotion Service Task List" />
                                             Task List
                                         </NavLink>
@@ -43,7 +47,7 @@ const Navbar = () => {
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="" className="nav-link">
+                                        <a href="ggrgr" className="nav-link">
                                             <img src={'/assets/images/help.svg'} alt="Promotion Service Help" />
                                             Help
                                         </a>
@@ -78,13 +82,13 @@ const Navbar = () => {
                                         <div className="user-dropdown-wrapper">
                                             <ul className="list-group">
                                                 <li className="list-group-item">
-                                                    <Link>
+                                                    <NavLink to='/profile'>
                                                         <img src={'/assets/images/user-alt.svg'} alt="Promotion User" />
                                                         My profile
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className="list-group-item">
-                                                    <Link>
+                                                    <Link  to="/">
                                                         <img src={'/assets/images/task-list.svg'} alt="Promotion Task List" />
                                                         Task history
                                                     </Link>
@@ -103,7 +107,7 @@ const Navbar = () => {
                                                     </button>
                                                 </li>
                                                 <li className="list-group-item log-out">
-                                                    <Link>
+                                                    <Link to="/">
                                                         <img src={'/assets/images/log-out.svg'} alt="Promotion Log Out" />
                                                         Log out
                                                     </Link>
@@ -121,4 +125,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default withRouter(Navbar);

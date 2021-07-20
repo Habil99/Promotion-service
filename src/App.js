@@ -1,17 +1,20 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from './components/Layout';
 import News from './pages/News';
+import Profile from './pages/Profile';
 import TaskList from './pages/TaskList';
 
 function App() {
-
   return (
-    <Layout>
-      <Switch>
+    <Switch>
+      <Layout>
+        <Route exact path="/">
+          <Redirect to="/task-list" />
+        </Route>
         <TransitionGroup>
-          <Route path="/" exact>
+          <Route path="/task-list" exact>
             {({ match }) => (
               <CSSTransition
                 in={match != null}
@@ -36,8 +39,23 @@ function App() {
             )}
           </Route>
         </TransitionGroup>
-      </Switch>
-    </Layout>
+        <TransitionGroup>
+          <Route path="/profile" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <Profile />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
+        <Route path="*" children={<div>Not found</div>} />
+      </Layout>
+    </Switch>
   );
 }
 

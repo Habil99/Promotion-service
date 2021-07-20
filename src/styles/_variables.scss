@@ -1,0 +1,12 @@
+$toggle-background-color-on: var(--color-dark-gray);
+$toggle-background-color-off: var(--color-bg-switcher);
+$toggle-control-color: var(--color-purple);
+$toggle-width: 44px;
+$toggle-height: 24px;
+$toggle-gutter: 5px;
+$toggle-radius: 50%;
+$toggle-control-speed: 0.15s;
+$toggle-control-ease: ease-in;
+
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);

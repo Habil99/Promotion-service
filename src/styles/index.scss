@@ -1,8 +1,9 @@
-@import "./constants.scss";
+@import "./style";
 
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 * {
@@ -297,7 +298,7 @@ body {
   }
 
   &-img {
-    flex: .6;
+    flex: 0.6;
     border-radius: var(--radius);
     overflow: hidden;
 
@@ -307,7 +308,7 @@ body {
   }
 
   &-content {
-    flex: .4;
+    flex: 0.4;
     color: var(--color-white);
     padding-left: 2.5rem;
 
@@ -362,5 +363,59 @@ body {
       @include font_size(1, rem, 400);
       color: var(--color-ghost-gray);
     }
+  }
+}
+
+.profile-wrapper {
+  margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  &-avatar {
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    background-color: var(--color-bg-indigo);
+    margin-bottom: 3.125rem;
+
+    &-img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 1.25rem;
+
+      img {
+        width: 100%;
+        border-radius: var(--radius);
+      }
+    }
+  }
+
+  .upload-btn {
+    border-radius: var(--radius);
+    border: 2px solid var(--color-dark-gray);
+    width: 100%;
+    background-color: transparent;
+    padding: 15px;
+    color: var(--color-white);
+    @include font_size(1, rem, 500);
+    transition: var(--transition);
+
+    &:hover {
+      background: var(--color-purple);
+      border: 2px solid var(--color-purple);
+    }
+  }
+
+  &-left {
+    grid-column: 1 / 4;
+  }
+
+  &-center {
+    grid-column: 4 / 9;
+    margin: 0 5rem;
+  }
+
+  &-right {
+    grid-column: 10 / 13;
   }
 }
