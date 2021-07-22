@@ -1,3 +1,7 @@
+%mb-40 {
+    margin-bottom: 2.5rem;
+}
+
 @mixin flex($dir, $align, $justify) {
     display: flex;
     align-items: $align;
@@ -8,8 +12,12 @@
 @mixin font_size($size, $type, $weight) {
     font-style: normal;
     font-weight: normal;
-    font-size: $size + $type;
-    font-weight: $weight;
+    @if $type == 'rem' {
+        font-size: $size + $type;
+    } @else {
+        $type: rem;
+        font-size: ($size / 16) + $type;
+    }
     // line-height: ($size * 1.1) + $type;
 }
 

@@ -6,9 +6,13 @@ const useScrollTop = ({ setVisible, scrollAmount, setScrollAmount }) => {
             setScrollAmount(val => val = window.pageYOffset);
             if (scrollAmount > 400) {
                 setVisible(true);
+                console.log(scrollAmount);
+
             } else {
                 setVisible(false);
+                console.log(scrollAmount);
             }
+
         });
     }, [scrollAmount, setScrollAmount, setVisible])
 }

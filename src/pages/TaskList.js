@@ -6,7 +6,12 @@ import TaskListCard from '../components/TaskList/Card'
 const TaskList = () => {
     return (
         <div>
-            <h4 className="main-wrapper-title">Task list</h4>
+            <div className="task-list-top">
+                <h4 className="main-wrapper-title">Task list</h4>
+                <Link to="/" className="create-task">
+                    + Create task
+                </Link>
+            </div>
             <div className="task-list">
                 <TaskListCard
                     avatar={'/assets/images/avatar-1.svg'}

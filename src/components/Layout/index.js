@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
-import { scrollToTop } from '../../utils/scroll-to-top'
+import { scrollToTop } from '../../assets/utils'
 import { useScrollTop } from '../../hooks/useScrollTop'
 
 const Layout = (props) => {

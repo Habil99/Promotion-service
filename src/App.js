@@ -53,7 +53,9 @@ function App() {
             )}
           </Route>
         </TransitionGroup>
-        <Route path="*" children={<div>Not found</div>} />
+        {/* <Route path="*">
+          <Redirect from="*" to="/" />
+        </Route> */}
       </Layout>
     </Switch>
   );

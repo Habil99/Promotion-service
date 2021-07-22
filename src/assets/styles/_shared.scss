@@ -196,3 +196,49 @@
         outline: none;
     }
 }
+
+.field-wrapper {
+    margin-bottom: 1.25rem;
+
+    .form-label {
+        @include font_size(14, px, 400);
+        color: var(--color-gray);
+    }
+
+    .form-input {
+        background-color: var(--color-input);
+        border: none;
+        padding: 0 15px;
+        height: 50px;
+        color: var(--color-white);
+        @include font_size(1, rem, 500);
+        border-radius: var(--radius);
+
+        &[disabled] {
+            background-color: var(--color-input);
+            color: var(--color-white) !important;
+            opacity: .7;
+        }
+
+        &:focus {
+            filter: saturate(1.2);
+            background-color: var(--color-input) !important;
+            color: var(--color-white);
+        }
+    }
+}
+
+.password-section {
+    @extend %mb-40;
+
+    &-title {
+        @include font_size(14, px, 500);
+        margin-bottom: 10px !important;
+        color: var(--color-gray);
+    }
+}
+
+
+.mb-40 {
+    margin-bottom: 2.5rem;
+}
