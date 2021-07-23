@@ -1,0 +1,6 @@
+export const NEWS = {
+    BASE_URL: process.env.REACT_APP_NEWS_API_URL,
+    API_KEY: process.env.REACT_APP_NEWS_API_KEY,
+    MOST_POPULAR_URL: process.env.REACT_APP_POPULAR_NEWS_API_URL,
+    MOST_POPULAR_KEY: process.env.REACT_APP_POPULAR_NEWS_API_KEY
+}

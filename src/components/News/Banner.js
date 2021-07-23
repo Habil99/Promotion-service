@@ -1,22 +1,22 @@
-import React from 'react'
+import Image from '../../shared/Image'
 
-const Banner = () => {
+const Banner = ({ img, title, info, date }) => {
+
     return (
         <div className="news-banner">
             <div className="news-banner-inner">
                 <div className="news-banner-img">
-                    <img src={'/assets/images/news-1.svg'} alt="Promotion Service News" />
+                    <Image source={img} />
                 </div>
                 <div className="news-banner-content">
                     <p className="news-banner-content-title">
-                        Dribbble Russia VK Community officially launched!
+                        {title}
                     </p>
                     <p className="news-banner-content-info">
-                        Send your portfolio to our manager on e-mail and get
-                        a chance to be a part of our new big Dribbblers group!
+                        {info}
                     </p>
                     <p className="news-banner-content-date">
-                        Aug 14, 2020
+                        {date}
                     </p>
                 </div>
             </div>

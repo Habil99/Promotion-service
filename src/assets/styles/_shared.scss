@@ -242,3 +242,20 @@
 .mb-40 {
     margin-bottom: 2.5rem;
 }
+
+.widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    width: 100%;
+    margin-top: 1.4rem !important;
+    grid-gap: 12px;
+
+    .widget {
+        background-color: #4447E2;
+        color: #fff;
+        border-radius: var(--radius);
+        @include font_size(14, px, 500);
+        padding: 10px 20px;
+        text-align: center;
+    }
+}

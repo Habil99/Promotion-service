@@ -1,0 +1,1 @@
+import { NEWS } from "../base";

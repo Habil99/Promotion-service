@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from './components/Layout';
-import News from './pages/News';
+import News from './pages/News/';
+import Detail from './pages/News/Detail';
+import PopularDetail from './pages/News/PopularDetail';
 import Profile from './pages/Profile';
 import TaskList from './pages/TaskList';
 
@@ -53,12 +55,40 @@ function App() {
             )}
           </Route>
         </TransitionGroup>
+        <TransitionGroup>
+          <Route path="/news/most-popular/:newsId" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <PopularDetail />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
+        <TransitionGroup>
+          <Route path="/news/:newsId" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <Detail />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
         {/* <Route path="*">
           <Redirect from="*" to="/" />
         </Route> */}
       </Layout>
     </Switch>
   );
-}
+};
 
 export default App;
