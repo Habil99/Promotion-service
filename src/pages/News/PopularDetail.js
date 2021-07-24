@@ -7,6 +7,7 @@ import { getMostPopularNews } from "../../redux/newsSlice";
 import Image from "../../shared/Image";
 import Widget from "../../shared/Widget";
 import { compareTime } from "../../assets/utils";
+import CardSkeleton from "../../components/News/CardSkeleton";
 
 const PopularDetail = () => {
   const status = useSelector(popularNewsStatus);
@@ -25,7 +26,7 @@ const PopularDetail = () => {
 
   return (
     <div>
-      {status === "fulfilled" &&
+      {status === "fulfilled" ?
         news?.map((n) => (
           <div className="news-detail" key={uuid()}>
             <div className="news-banner">
@@ -68,7 +69,7 @@ const PopularDetail = () => {
               </div>
             </div>
           </div>
-        ))}
+        )) : <CardSkeleton />}
     </div>
   );
 };

@@ -318,20 +318,14 @@ body {
       align-items: stretch;
     }
     .news-banner-img {
-      @include background-gradient(
-        var(--base-skeleton-color),
-        var(--base-skeleton-shine)
-      );
+      @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
       animation: shine-lines 1s infinite linear;
       width: calc(100% - 40vw);
       height: 300px;
       border-radius: var(--radius);
     }
     .news-banner-content-title {
-      @include background-gradient(
-        var(--base-skeleton-color),
-        var(--base-skeleton-shine)
-      );
+      @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
       animation: shine-lines 1s infinite linear;
       width: 100%;
       height: 30px;
@@ -339,14 +333,11 @@ body {
       border-radius: var(--radius);
 
       &-2 {
-        width: 40%
+        width: 40%;
       }
     }
     .news-banner-content-info {
-      @include background-gradient(
-        var(--base-skeleton-color),
-        var(--base-skeleton-shine)
-      );
+      @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
       animation: shine-lines 1s infinite linear;
       width: 100%;
       height: 30px;
@@ -354,10 +345,7 @@ body {
       border-radius: var(--radius);
     }
     .news-banner-content-date {
-      @include background-gradient(
-        var(--base-skeleton-color),
-        var(--base-skeleton-shine)
-      );
+      @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
       animation: shine-lines 1s infinite linear;
       width: 30%;
       height: 20px;
@@ -419,6 +407,27 @@ body {
     background-color: var(--color-bg-indigo);
     border-radius: var(--radius);
     color: var(--color-white);
+
+    &.skeleton {
+      .news-card-img {
+        width: 100%;
+        height: 200px;
+        @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
+        animation: shine-lines 1s infinite linear;
+      }
+      .news-card-info {
+        width: 90%;
+        height: 30px;
+        @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
+        animation: shine-lines 1s infinite linear;
+      }
+      .news-card-date {
+        width: 40%;
+        height: 20px;
+        @include background-gradient(var(--base-skeleton-color), var(--base-skeleton-shine));
+        animation: shine-lines 1s infinite linear;
+      }
+    }
 
     &-img {
       width: 100%;

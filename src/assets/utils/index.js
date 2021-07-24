@@ -46,8 +46,8 @@ export const increaseResolution = async (image) => {
     return image;
 };
 
-export const removeSpaceFromEndpoint = endpoint => {
-   return encodeURIComponent(decodeURIComponent(endpoint).replaceAll(/\s+/g, '-'))
+export const encodeEndpoint = endpoint => {
+   return encodeURIComponent(decodeURIComponent(endpoint))
 };
 
 export const compareTime = (updated) => {

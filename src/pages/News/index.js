@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMostPopularNews, getNews } from "../../redux/newsSlice";
 import { useEffect } from "react";
 import {
+  encodeEndpoint,
   formatDate,
-  removeSpaceFromEndpoint,
   truncateString,
 } from "../../assets/utils";
 import uuid from "react-uuid";
@@ -17,6 +17,7 @@ import {
   popularNewsStatus,
 } from "../../redux/news.selector";
 import BannerSkeleton from "../../components/News/BannerSkeleton";
+import CardSkeleton from "../../components/News/CardSkeleton";
 
 const News = () => {
   const news = useSelector(allNews);
@@ -66,12 +67,12 @@ const News = () => {
       )}
       <h4 className="main-wrapper-title">Last news</h4>
       <div className="news-cards">
-        {status === "fulfilled" &&
+        {status === "fulfilled" ?
           news[0]?.map((news) => (
             <Link
               key={uuid()}
               to={{
-                pathname: `news/${removeSpaceFromEndpoint(news.title)}`,
+                pathname: `news/${encodeEndpoint(news.title)}?date=${encodeEndpoint(news.publishedAt)}`,
               }}
             >
               <Card
@@ -80,6 +81,8 @@ const News = () => {
                 date={formatDate(news.publishedAt)}
               />
             </Link>
+          )) : Array(10).fill(null).map((_, i) => (
+            <CardSkeleton key={i} />
           ))}
       </div>
     </div>
