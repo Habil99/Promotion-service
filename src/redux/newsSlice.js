@@ -7,10 +7,13 @@ const initialState = {
     allNews: {
         data: [],
         status: "idle",
+        page: 1,
+        error: null
     },
     popularNews: {
         data: [],
         status: "idle",
+        error: null
     },
 };
 
@@ -19,6 +22,8 @@ const config = {
     url: `${NEWS.BASE_URL}/everything`,
     params: {
         q: 'technology',
+        page: initialState.allNews.page,
+        pageSize: 12
     },
     headers: {
         'X-Api-Key': NEWS.API_KEY
@@ -43,6 +48,13 @@ export const newsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
+        [getNews.pending]: (state) => {
+            state.allNews.status = 'loading';
+        },
+        [getNews.rejected]: (state, { payload }) => {
+            state.allNews.status = 'rejected';
+            state.allNews.error = payload;
+        },
         [getNews.fulfilled]: (state, { payload }) => {
             state.allNews.status = 'fulfilled';
             state.allNews.data.push(payload.articles);

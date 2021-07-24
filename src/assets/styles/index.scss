@@ -312,23 +312,76 @@ body {
   margin: 4rem 0 6.25rem 0;
   border-radius: var(--radius);
   background-color: var(--color-bg-indigo);
-  
+
+  &.skeleton {
+    .news-banner-inner {
+      align-items: stretch;
+    }
+    .news-banner-img {
+      @include background-gradient(
+        var(--base-skeleton-color),
+        var(--base-skeleton-shine)
+      );
+      animation: shine-lines 1s infinite linear;
+      width: calc(100% - 40vw);
+      height: 300px;
+      border-radius: var(--radius);
+    }
+    .news-banner-content-title {
+      @include background-gradient(
+        var(--base-skeleton-color),
+        var(--base-skeleton-shine)
+      );
+      animation: shine-lines 1s infinite linear;
+      width: 100%;
+      height: 30px;
+      margin-top: 30px !important;
+      border-radius: var(--radius);
+
+      &-2 {
+        width: 40%
+      }
+    }
+    .news-banner-content-info {
+      @include background-gradient(
+        var(--base-skeleton-color),
+        var(--base-skeleton-shine)
+      );
+      animation: shine-lines 1s infinite linear;
+      width: 100%;
+      height: 30px;
+      margin-top: 30px !important;
+      border-radius: var(--radius);
+    }
+    .news-banner-content-date {
+      @include background-gradient(
+        var(--base-skeleton-color),
+        var(--base-skeleton-shine)
+      );
+      animation: shine-lines 1s infinite linear;
+      width: 30%;
+      height: 20px;
+      margin-top: 30px !important;
+      border-radius: var(--radius);
+    }
+  }
+
   &-inner {
     padding: 1.25rem;
     display: flex;
     align-items: center;
   }
-  
+
   &-img {
     flex: 0.4;
     border-radius: var(--radius);
     overflow: hidden;
-    
+
     img {
       width: 100%;
     }
   }
-  
+
   &-content {
     flex: 0.6;
     color: var(--color-white);
@@ -345,7 +398,7 @@ body {
     &-info {
       @include font_size(1.125, rem, 400);
       padding-bottom: 2.5rem;
-      color: var(--color-white)
+      color: var(--color-white);
     }
 
     &-date {
@@ -567,7 +620,7 @@ body {
   .byline {
     border-radius: var(--radius);
     padding: 8px 30px;
-    background-color: #4447E2;
+    background-color: #4447e2;
     color: var(--color-white);
     width: max-content;
     margin-bottom: 18px;
@@ -575,7 +628,7 @@ body {
 
   &-bottom {
     width: 100%;
-    
+
     .source-date {
       display: flex;
       align-items: center;
