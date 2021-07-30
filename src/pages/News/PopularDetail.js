@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { formatDate } from "../../assets/utils";
-import { popularNews, popularNewsStatus } from "../../redux/news.selector";
+import { newsSelector } from "../../redux/news.selector";
 import { getMostPopularNews } from "../../redux/newsSlice";
 import Image from "../../shared/Image";
 import Widget from "../../shared/Widget";
@@ -10,8 +10,8 @@ import { compareTime } from "../../assets/utils";
 import CardSkeleton from "../../components/News/CardSkeleton";
 
 const PopularDetail = () => {
-  const status = useSelector(popularNewsStatus);
-  const news = useSelector(popularNews);
+  const status = useSelector(newsSelector.popularNewsStatus);
+  const news = useSelector(newsSelector.popularNews);
   const dispatch = useDispatch();
 
   useEffect(() => {
