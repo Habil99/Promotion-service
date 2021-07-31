@@ -30,3 +30,9 @@
     $type: rem;
     @return $value / 16 + $type;
 }
+
+@mixin grid($width, $gap) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($width, 1fr));
+    grid-gap: $gap;
+}

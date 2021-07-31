@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Layout from './components/Layout';
-import News from './pages/News/';
-import Detail from './pages/News/Detail';
-import PopularDetail from './pages/News/PopularDetail';
-import Profile from './pages/Profile';
-import TaskList from './pages/TaskList';
+import React, { useEffect } from "react";
+import { Redirect, Route, Switch } from "react-router";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import CreateTask from "./pages/CreateTask";
+import Layout from "./components/Layout";
+import News from "./pages/News/";
+import Detail from "./pages/News/Detail";
+import PopularDetail from "./pages/News/PopularDetail";
+import Profile from "./pages/Profile";
+import TaskList from "./pages/TaskList";
 
 function App() {
   return (
@@ -83,12 +84,23 @@ function App() {
             )}
           </Route>
         </TransitionGroup>
-        {/* <Route path="*">
-          <Redirect from="*" to="/" />
-        </Route> */}
+        <TransitionGroup>
+          <Route path="/create-task" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <CreateTask />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
       </Layout>
     </Switch>
   );
-};
+}
 
 export default App;

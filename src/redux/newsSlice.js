@@ -103,8 +103,7 @@ export const newsSlice = createSlice({
       state.popularNews.data.push(data);
     },
     [getTotalResults.fulfilled]: (state, { payload }) => {
-      const total = payload;
-      // const total = 100;
+      const total = 8 * state.allNews.pageSize;
       state.allNews.total = total;
     },
   },

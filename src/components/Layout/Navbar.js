@@ -26,10 +26,10 @@ const Navbar = ({ history }) => {
                 <div className="base-container">
                     <div className="row no-gutters">
                         <div className="col-lg-3">
-                            <a href="https" className="navbar-brand">
+                            <Link to="/task-list" className="navbar-brand">
                                 <img src={'/assets/images/logo.svg'} alt="PromotionService by Habil" />
                                 <p>Pro-Promotion.com</p>
-                            </a>
+                            </Link>
                         </div>
                         <div className="col-lg">
                             <div className="center-menu">

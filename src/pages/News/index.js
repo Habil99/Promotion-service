@@ -28,6 +28,7 @@ const News = () => {
   useEffect(() => {
     if (status === "idle") {
       dispatch(getNews());
+      dispatch(getTotalResults());
     } else if (status === "fulfilled") {
     }
   }, [dispatch, news, status]);
@@ -35,7 +36,6 @@ const News = () => {
   useEffect(() => {
     if (popularStatus === "idle") {
       dispatch(getMostPopularNews());
-      dispatch(getTotalResults());
     } else if (popularStatus === "fulfilled") {
       // console.log(popular)
     }

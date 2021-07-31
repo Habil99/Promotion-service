@@ -645,3 +645,21 @@ body {
     }
   }
 }
+
+.create-task-section {
+  margin: rem(35) 0;
+}
+
+.create-task-wrapper {
+  margin-bottom: rem(40);
+
+  .checkboxes {
+    @include grid(rem(290), rem(20));
+  }
+}
+
+.create-task-label {
+  @include font_size(16, px, 500);
+  color: var(--color-gray);
+  margin-bottom: rem(10) !important;
+}

@@ -311,3 +311,41 @@
         }
     }
 }
+
+/* Custom checkbox for task creation */
+
+.custom-checkbox {
+    border: none;
+    background-color: var(--color-bg-indigo);
+    color: var(--color-white);
+    @include flex(row, center, stretch);
+    padding: rem(10);
+    border-radius: var(--radius);
+    cursor: pointer;
+    user-select: none;
+
+    &-logo {
+        margin-right: rem(10);
+        width: rem(40);
+        border-radius: rem(12);
+    }
+
+    &-title {
+        @include font_size(16, px, 500);
+    }
+
+    .checkmark {
+        margin-left: auto;
+        border-radius: 50%;
+        width: rem(20);
+        height: rem(20);
+        border: 2px solid var(--color-dark-gray);
+        @include font_size(row, center, center);
+
+        img {
+            width: 100%;
+            height: 100%;
+            margin-top: -12px;
+        }
+    }
+}
