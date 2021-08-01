@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import CreateTask from "./pages/CreateTask";
+import CreateTask from "./pages/Task/Create";
 import Layout from "./components/Layout";
 import News from "./pages/News/";
 import Detail from "./pages/News/Detail";
 import PopularDetail from "./pages/News/PopularDetail";
 import Profile from "./pages/Profile";
-import TaskList from "./pages/TaskList";
+import TaskList from "./pages/Task/List";
+import History from "./pages/Task/History";
 
 function App() {
   return (
@@ -94,6 +95,20 @@ function App() {
                 unmountOnExit
               >
                 <CreateTask />
+              </CSSTransition>
+            )}
+          </Route>
+        </TransitionGroup>
+        <TransitionGroup>
+          <Route path="/task-history" exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                classNames="pages"
+                timeout={300}
+                unmountOnExit
+              >
+                <History />
               </CSSTransition>
             )}
           </Route>

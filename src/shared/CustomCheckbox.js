@@ -5,11 +5,19 @@ const CustomCheckbox = ({ logo, label }) => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <label className="custom-checkbox">
-      <div className="custom-checkbox-logo">
-        <Image source={logo} />
-      </div>
-      <p className="custom-checkbox-title">{label}</p>
+    <label
+      className={`${checked ? "custom-checkbox active" : "custom-checkbox"} ${
+        label && logo ? "d-flex" : "button d-inline-block"
+      }`}
+    >
+      {logo && label && (
+        <>
+          <div className="custom-checkbox-logo">
+            <Image source={logo} />
+          </div>
+          <p className="custom-checkbox-title">{label}</p>
+        </>
+      )}
       <div className="checkmark">
         {checked && <Image source={"/assets/images/checkmark.svg"} />}
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CardSkeletion from "../components/CardSkeleton";
-import TaskListCard from "../components/TaskList/Card";
+import CardSkeletion from "../../components/CardSkeleton";
+import TaskListCard from "../../components/TaskList/Card";
 
 const TaskList = () => {
   return (

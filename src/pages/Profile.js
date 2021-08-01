@@ -122,7 +122,7 @@ const Profile = () => {
                   required={true}
                 />
               </div>
-              <button className="save-changes">Save changes</button>
+              <button className="button-purple">Save changes</button>
             </form>
           </div>
         </div>

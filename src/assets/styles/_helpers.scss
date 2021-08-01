@@ -12,7 +12,7 @@
 @mixin font_size($size, $type, $weight) {
     font-style: normal;
     font-weight: normal;
-    @if $type == 'rem' {
+    @if $type == "rem" {
         font-size: $size + $type;
     } @else {
         $type: rem;
@@ -33,6 +33,30 @@
 
 @mixin grid($width, $gap) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($width, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax($width, 1fr)) 280px;
     grid-gap: $gap;
+}
+
+@mixin button($color, $bg-color, $padding, $radius: var(--radius)) {
+    color: $color;
+    background-color: $bg-color;
+    padding: $padding !important;
+    @extend %clear-outline;
+    border-radius: $radius;
+}
+
+.grid {
+    &__col-3 {
+        @include grid(rem(350), rem(50));
+    }
+
+    &-item {
+        &__create-task {
+            color: var(--color-gray);
+            
+            p {
+                margin-bottom: rem(10) !important;
+            }
+        }
+    }
 }

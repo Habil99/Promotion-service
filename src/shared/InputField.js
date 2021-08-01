@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputField = ({ type, label, title, required, disabled }) => {
+const InputField = ({ type, label, title, required, disabled, value }) => {
   return (
     <div className="field-wrapper">
       <label className="form-label" htmlFor={label}>
@@ -12,6 +12,8 @@ const InputField = ({ type, label, title, required, disabled }) => {
         id={label}
         required={required}
         disabled={disabled}
+        value={value ? value : ''}
+        onChange={() => ''} // to fix exception
       />
     </div>
   );

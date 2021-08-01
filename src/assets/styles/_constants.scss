@@ -1,0 +1,42 @@
+%purple {
+    color: var(--color-purple);
+}
+
+.text-purple {
+    @extend %purple;
+}
+
+.fs-14 {
+    @include font_size(14, px, 400);
+}
+
+%clear-outline {
+    border: none;
+    outline: none;
+}
+
+.button {
+    @include button(var(--color-white), var(--color-input), 15px);
+
+    overflow: hidden;
+    text-decoration: none;
+
+    img {
+        margin-right: 8px;
+        margin-top: -4px;
+    }
+}
+
+.button-purple {
+    border: 2px solid var(--color-purple);
+    background-color: transparent;
+    outline: none;
+    border-radius: var(--radius);
+    padding: 10px 20px;
+    color: var(--color-white) !important;
+    transition: var(--transition);
+
+    &:hover {
+        background-color: var(--color-purple);
+    }
+}

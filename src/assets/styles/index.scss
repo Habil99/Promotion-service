@@ -504,19 +504,7 @@ body {
     grid-column: 4 / 10;
     margin: 0 5rem 0 2.5rem;
 
-    .save-changes {
-      border: 2px solid var(--color-purple);
-      background-color: transparent;
-      outline: none;
-      border-radius: var(--radius);
-      padding: 10px 20px;
-      color: var(--color-white);
-      transition: var(--transition);
-
-      &:hover {
-        background-color: var(--color-purple);
-      }
-    }
+    
   }
 
   &-right {
@@ -662,4 +650,69 @@ body {
   @include font_size(16, px, 500);
   color: var(--color-gray);
   margin-bottom: rem(10) !important;
+}
+
+
+//history page
+
+.history-wrapper {
+  margin: rem(30) 0 rem(20) 0;  
+
+  .show-more {
+    @include button(var(--color-dark-gray), transparent, rem(10) rem(20));
+    @include font_size(16, px, 500);
+    border: 2px solid;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  .history-table {
+    overflow: auto;
+    
+    .table {
+      min-width: rem(1100);
+      border-collapse: separate;
+      border-spacing: 0 rem(10);
+
+      th {
+        color: var(--color-gray);
+        @include font_size(14, px, 500);
+      }
+    }
+
+    &-row {
+      td {
+        padding: rem(15) 0;
+        background-color: var(--color-bg-indigo);
+        vertical-align: middle;
+        color: var(--color-white);
+
+        &:first-child {
+          border-top-left-radius: var(--radius);
+          border-bottom-left-radius: var(--radius);
+          padding-left: rem(15);
+        }
+
+        &:last-child {
+          border-top-right-radius: var(--radius);
+          border-bottom-right-radius: var(--radius);
+          padding-right: rem(15);
+        }
+      }
+    }
+
+    &-cell {
+      .__flex {
+        @include flex(row, center, stretch);
+
+        img {
+          margin-right: 8px;
+          width: rem(40);
+        }
+      }
+    }
+  }
 }
