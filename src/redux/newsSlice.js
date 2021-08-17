@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Paginate, randomObject } from "../assets/utils";
+import { randomObject } from "../assets/utils";
 import { NEWS } from "../base";
 
 const initialState = {

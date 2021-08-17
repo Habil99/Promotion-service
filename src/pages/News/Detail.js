@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import uuid from "react-uuid";
 import { compareTime, formatDate } from "../../assets/utils";
@@ -31,7 +30,7 @@ const Detail = () => {
         setNews(data)
         setLoading(false)
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

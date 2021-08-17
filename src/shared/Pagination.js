@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router";
@@ -29,7 +29,7 @@ const Pagination = ({ totalPage }) => {
 		if (page > 1) {
 			paginate(page);
 		}
-	}, [])
+	}, [location.search, paginate])
 
 	return (
 		<ReactPaginate

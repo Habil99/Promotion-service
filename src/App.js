@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import CreateTask from "./pages/Task/Create";

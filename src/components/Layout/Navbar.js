@@ -79,7 +79,7 @@ const Navbar = ({ history }) => {
             <div className="col-lg-3">
               <div className="user-info-nav">
                 <div className="coin-info">
-                  <a className="increase-btn-nav">
+                  <a href="http" className="increase-btn-nav">
                     <img
                       src={"/assets/images/plus.svg"}
                       alt="Increase your promotion coin"
